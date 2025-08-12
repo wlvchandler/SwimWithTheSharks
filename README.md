@@ -1,0 +1,1 @@
+SWIM-style gossip library in Go. WIP.
