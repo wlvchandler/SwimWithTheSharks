@@ -22,8 +22,8 @@ func TestDefaultsAndValidation(t *testing.T) {
 	if cfg.SuspectTimeout < 3*cfg.PingInterval {
 		t.Fatalf("SuspectTimeout should be >= 3*PingInterval")
 	}
-	if cfg.MaxPiggyback <= 0 || cfg.IndirectK < 0 {
-		t.Fatalf("bad defaults: %v %v", cfg.MaxPiggyback, cfg.IndirectK)
+	if cfg.MaxPiggyBack <= 0 || cfg.IndirectK < 0 {
+		t.Fatalf("bad defaults: %v %v", cfg.MaxPiggyBack, cfg.IndirectK)
 	}
 }
 
