@@ -2,8 +2,6 @@ package gossip
 
 import "time"
 
-type Addr = string
-
 type Config struct {
 	Bind           Addr
 	Seeds          []Addr
