@@ -13,7 +13,7 @@ type Config struct {
 	Seeds     []Addr
 
 	// timers
-	PingInvterval  time.Duration
+	PingInterval   time.Duration
 	PingTimeout    time.Duration
 	SuspectTimeout time.Duration
 
@@ -34,10 +34,22 @@ func DefaultConfig(bind Addr) Config {
 	return Config{
 		Bind:           bind,
 		Advertise:      "", // resolved at start
-		PingInvterval:  1 * time.Second,
+		PingInterval:   1 * time.Second,
 		PingTimeout:    200 * time.Millisecond,
 		SuspectTimeout: 5 * time.Second,
 		MaxPiggyBack:   16,
 		IndirectK:      3,
+	}
+}
+
+func (c Config) WithDefaults() Config {
+	out := c
+
+	if out.Advertise == "" {
+		out.Advertise = out.Bind
+	}
+
+	if out.PingInterval <= 0 {
+		out.PingInterval = 1 * time.Second
 	}
 }
